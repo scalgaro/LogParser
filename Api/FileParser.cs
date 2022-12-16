@@ -44,6 +44,9 @@ public static class FileParser
 
     private static string? TreatLine(string line)
     {
+        const int primerCorte = 27;
+        const int segundoCorte = 38;
+        
         if (!line.StartsWith("2022"))
         {
             return null;
@@ -52,10 +55,10 @@ public static class FileParser
         var result = line;
 
         // Separando la fecha que está en ISO
-        result = result.ReplaceForComma(27);
+        result = result.ReplaceForComma(primerCorte);
 
         // Separando el ID
-        result = result.ReplaceForComma(39);
+        result = result.ReplaceForComma(segundoCorte);
 
         // Separando comandos
         var comandos = new[]
